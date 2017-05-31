@@ -1,0 +1,44 @@
+{% load staticfiles %}
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'PoolCamAI/css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{% static 'PoolCamAI/css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<header>
+    <nav class="white" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="http://www.vkirirom.com/en/" class="brand-logo"><img src="{% static 'PoolCamAI/assets/image/vKirirom.svg' %}" alt="vKiriromLogo"></a>
+        <!-- <a href="http://www.vkirirom.com/en/" class="brand-logo center teal-text">vKirirom</a> -->
+        <ul class="right hide-on-med-and-down">
+          <li><a href="http://www.vkirirom.com/en/contact.php">Contact</a></li>
+          <!-- <i class="small material-icons prefix">info_outline</i> -->
+          <li><a href="http://www.vkirirom.com/en/detailsCompany.php">About</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav">
+          <li><a href="http://www.vkirirom.com/en/contact.php">Contact</a></li>
+          <li><a href="http://www.vkirirom.com/en/detailsCompany.php">About</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+    {% block header %}{% endblock %}
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer>
+    {% block footer %}{% endblock %}
+</footer>
+
+</body>
+</html>

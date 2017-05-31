@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Swimming Pool Surveilliance{% endblock %}
+
+
+{% block content %}
+
+{% endblock %}
+
+
+
+
+<body>
+  <header class="index">
+
+  </header>
+  <main class="index">
+    <div id="contain">
+      <div class="row bot">
+        <div class="col m4">
+
+        </div>
+         <div class="col m4">
+           <div class="card-panel white">
+             <div class="row">
+              <form class="col s12">
+                <!-- <h3>Login</h3>
+                <hr> -->
+                <div class="row bot">
+                  <div class="input-field col s12">
+                    <i class="material-icons prefix">perm_identity</i>
+                    <input id="icon_prefix" type="text" class="validate">
+                    <label for="icon_prefix">Username</label>
+                  </div>
+                  <div class="input-field col s12 xxx">
+                    <i class="material-icons prefix">vpn_key</i>
+                    <input id="icon_password" type="password" class="validate">
+                    <label for="icon_password">Password</label>
+                    <div class="col s8 offset-s1"><a href="#">Forgot password?</a></div>
+                  </div>
+                  <button class="btn waves-effect waves-light col s4 offset-s4" type="submit" name="action">Login
+                    <i class="material-icons right">send</i>
+                  </button>
+                </div>
+              </form>
+            </div>
+           </div>
+         </div>
+         <div class="m4">
+
+         </div>
+       </div>
+    </div>
+  </main>
+
+  <footer class="index page-footer teal">
+    <div class="container">
+      <div class="row pos">
+        <div class="col l6 s12">
+          <h5 class="white-text">vKirirom Pine Resort</h5>
+          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job.</p>
+
+
+        </div>
+        <div class="col l6 s12">
+          <h5 class="white-text">Connect</h5>
+          <ul>
+            <li><a class="white-text" href="#!">Tel: 015 404 410</a></li>
+            <li><a class="white-text" href="#!">E-mail: sousocheat@kit.edu.kh</a></li>
+            <li><a class="white-text" href="#!">Tel: 096 572 2866</a></li>
+            <li><a class="white-text" href="#!">E-mail: minsopheaktra16@kit.edu.kh</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://facebook.com/sousocheat">Jett</a>
+      <a class="teal-text" href="{% url 'main' %}">Developer Mode</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <!--  Scripts-->
+  <script src="{% static 'PoolCamAI/js/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'PoolCamAI/js/materialize.js' %}"></script>
+  <script src="{% static 'PoolCamAI/js/init.js' %}"></script>
+
+  </body>
+</html>
