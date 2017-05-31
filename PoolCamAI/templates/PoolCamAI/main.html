@@ -1,226 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Swimming Pool Surveilliance</title>
+{% extends "PoolCamAI/mainbase.html" %}
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
-<body>
-  <header class="main">
-    <div class="navbar-fixed">
-    <nav class="white" role="navigation">
-      <div class="nav-wrapper">
-        <a id="logo-container" href="http://www.vkirirom.com/en/" class="brand-logo"><img src="../assets/image/vKirirom.svg" alt="vKiriromLogo"></a>
+{% block title %}Swimming Pool Surveilliance{% endblock %}
 
-        <ul id="slide-out" class="side-nav fixed fwid">
-          <li><div class="Titles"><form>
-          <div class="input-field">
-            <input id="search" type="search" required>
-            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-            <i class="material-icons">close</i>
-          </div>
-        </form></div></li>
+{% block content %}
 
-          <li><div class="divider"></div></li>
-          <li><div class="userView">
-              <div class="background">
-                <img src="../assets/image/bg1.jpg">
-              </div>
-              <a href="#!user"><img class="circle" src="../assets/image/KFI4.png"></a>
-              <a href="#!name"><span class="white-text name">Admin</span></a>
-              <a href="#!email"><span class="white-text email">sousocheat16@kit.edu.kh</span></a>
-            </div></li>
-            <li><a href="#!"><i class="material-icons">videocam</i>Camera</a></li>
-            <li><a href="#!">Notifications<span class="new badge blue">4</span></a></li>
-            <li><div class="divider"></div></li>
-            <li><a class="subheader"><i class="material-icons">settings</i>Setting</a></li>
-            <li><a class="waves-effect" href="#!"><i class="material-icons">schedule</i>Schedule</a></li>
-        </ul>
-        <!-- <a href="http://www.vkirirom.com/en/" class="brand-logo center teal-text">vKirirom</a> -->
-        <ul class="right hide-on-med-and-down" id="ulright">
-          <li><a href="http://www.vkirirom.com/en/contact.php">Contact</a></li>
-          <!-- <i class="small material-icons prefix">info_outline</i> -->
-          <li><a href="http://www.vkirirom.com/en/detailsCompany.php">About</a></li>
-          <li><a class="dropdown-button btn white black-text" data-activates="dropdown1" href="#">Notification <span class="new badge blue">4</span></a></li>
-          <ul id='dropdown1' class='dropdown-content fixstyle'>
-            <ul class="collection">
-              <li class="collection-item avatar">
-                <img src="../assets/image/KFI4.png" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-              <li class="collection-item avatar">
-                <i class="material-icons circle">folder</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-              <li class="collection-item avatar">
-                <i class="material-icons circle green">insert_chart</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-              <li class="collection-item avatar">
-                <i class="material-icons circle red">play_arrow</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                   Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-              </li>
-            </ul>
-          </ul>
-        </ul>
-
-        <ul id="nav-mobile" class="side-nav">
-
-          <li><div class="userView">
-              <div class="background">
-                <img src="../assets/image/bg1.jpg">
-              </div>
-              <a href="#!user"><img class="circle" src="../assets/image/KFI4.png"></a>
-              <a href="#!name"><span class="white-text name">Admin</span></a>
-              <a href="#!email"><span class="white-text email">sousocheat16@kit.edu.kh</span></a>
-            </div></li>
-            <li><a href="#!"><i class="material-icons">videocam</i>Camera</a></li>
-            <li><ul class="collapsible" data-collapsible="accordion">
-              <li>
-                <div class="collapsible-header black-text">Notifications<span class="new badge blue">4</span></div>
-                <div class="collapsible-body black-text"><ul class="collection">
-                  <li class="collection-item avatar">
-                    <img src="../assets/image/KFI4.png" alt="" class="circle">
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                       Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                  </li>
-                  <li class="collection-item avatar">
-                    <i class="material-icons circle">folder</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                       Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                  </li>
-                  <li class="collection-item avatar">
-                    <i class="material-icons circle green">insert_chart</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                       Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                  </li>
-                  <li class="collection-item avatar">
-                    <i class="material-icons circle red">play_arrow</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                       Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                  </li>
-                </ul></div>
-              </li>
-            </ul></li>
-            <li><div class="divider"></div></li>
-            <li><a class="subheader"><i class="material-icons">settings</i>Setting</a></li>
-            <li><a class="waves-effect" href="#!"><i class="material-icons">schedule</i>Schedule</a></li>
-            <li><div class="Titles"></div></li>
-            <li><div class="Titles"></div></li>
-            <li><div class="divider"></div></li>
-            <li><a class="waves-effect" href="http://www.vkirirom.com/en/contact.php"><i class="material-icons">contacts</i>Contact</a></li>
-            <li><a class="waves-effect" href="http://www.vkirirom.com/en/detailsCompany.php"><i class="material-icons">info_outline</i>About</a></li>
-            <!-- <li><a class="waves-effect" href="http://www.vkirirom.com/en/contact.php">Contact</a></li>
-            <li><a class="waves-effect" href="http://www.vkirirom.com/en/detailsCompany.php">About</a></li -->
-        </ul>
-        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-        <!-- <a href="#" data-activates="dropdown2" class="dropdown-button right teal-text"><i class="material-icons left">new_releases</i></a> -->
-        <ul id="slide-out1" class="side-nav">
-          <ul class="collection black-text">
-            <li class="collection-item avatar">
-              <img src="../assets/image/KFI4.png" alt="" class="circle">
-              <span class="title">Title</span>
-              <p>First Line <br>
-                 Second Line
-              </p>
-              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-            <li class="collection-item avatar">
-              <i class="material-icons circle">folder</i>
-              <span class="title">Title</span>
-              <p>First Line <br>
-                 Second Line
-              </p>
-              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-            <li class="collection-item avatar">
-              <i class="material-icons circle green">insert_chart</i>
-              <span class="title">Title</span>
-              <p>First Line <br>
-                 Second Line
-              </p>
-              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-            <li class="collection-item avatar">
-              <i class="material-icons circle red">play_arrow</i>
-              <span class="title">Title</span>
-              <p>First Line <br>
-                 Second Line
-              </p>
-              <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-          </ul>
-        </ul>
-        </ul>
-        <a href="#" data-activates="slide-out1" class="button-collapse right teal-text"><i class="material-icons">new_releases</i></a>
-
-      </div>
-    </nav>
-  </div>
-  </header>
-
-<main class="main">
 <div class="row">
-  <div class="col s12 m8">
-    <div class="card white">
-      <div class="card-content black-text">
-        <!-- <span class="card-title">Card Title</span> -->
-        <!-- <video class="responsive-video" controls>
-          <source src="movie.mp4" type="video/mp4">
-        </video> -->
-        <div class="video-container">
-          <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+    <div class="col s12 m8">
+        <div class="card white">
+            <div class="card-content black-text">
+                <!-- <span class="card-title">Card Title</span> -->
+                <!-- <video class="responsive-video" controls>
+                  <source src="movie.mp4" type="video/mp4">
+                </video> -->
+                <div class="video-container">
+                    <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0"
+                            allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="card-action">
+                <a href="#">Take a screenshot</a>
+                <a href="#">Notify Security</a>
+            </div>
         </div>
-      </div>
-      <div class="card-action">
-        <a href="#">Take a screenshot</a>
-        <a href="#">Notify Security</a>
-      </div>
     </div>
-  </div>
 </div>
-</main>
 
-
-
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="../js/materialize.js"></script>
-  <script src="../js/init.js"></script>
-
-  </body>
-</html>
+{% endblock %}
