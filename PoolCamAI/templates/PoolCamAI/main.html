@@ -9,18 +9,11 @@
         <div class="card white">
             <div class="card-content black-text">
                  <span class="card-title">Live Stream</span>
-                <!-- <video class="responsive-video" controls>
-                  <source src="movie.mp4" type="video/mp4">
-                </video> -->
-                <!--<div class="video-container">-->
-                    <!--<iframe width="853" height="480" src="" frameborder="0"-->
-                            <!--allowfullscreen></iframe>-->
-                <!--</div>-->
-                <div class="video-container">
-                    {% block camera %}
-                    {% include "PoolCamAI/camera.html" %}
-                    {% endblock %}
-                </div>
+                 <div class="video-container">
+                     {% block camera %}
+                     {% include "PoolCamAI/camera.html" %}
+                     {% endblock %}
+                 </div>
             </div>
             <div class="card-action">
                 <a href="#">Take a screenshot</a>
