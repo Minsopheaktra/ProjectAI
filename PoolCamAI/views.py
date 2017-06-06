@@ -22,7 +22,5 @@ def gen(camera):
 def video_feed(request):
     """Video streaming route. Put this in the src attribute of an img tag."""
     return StreamingHttpResponse(gen(VideoCamera()), content_type='multipart/x-mixed-replace; boundary=frame')
-    # return Response(gen(VideoCamera()),
-    #                 mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
