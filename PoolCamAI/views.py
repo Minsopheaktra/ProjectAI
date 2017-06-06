@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from flask import Response
 from .main import gen, VideoCamera
 from django.http import StreamingHttpResponse
 
@@ -20,6 +19,4 @@ def video_feed(request):
     # return Response(gen(VideoCamera()),
     #                 mimetype='multipart/x-mixed-replace; boundary=frame')
 
-# def index():
-#     """Video streaming home page."""
-#     return render_template('index.html')
+
