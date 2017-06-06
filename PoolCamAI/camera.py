@@ -1,7 +1,7 @@
 # camera.py
 
 import cv2
-
+from time import time
 
 class VideoCamera(object):
     def __init__(self):
@@ -27,3 +27,9 @@ class VideoCamera(object):
         # video stream.
         ret, jpeg = cv2.imencode('.jpg', image)
         return jpeg.tobytes()
+
+    def get_shot(self):
+        # Getting a snapshot
+        # Read current frame
+        success, image = self.video.read()
+        self.video.imwrite('Snapshot_{0}'.format(str(int(time()))), image)
