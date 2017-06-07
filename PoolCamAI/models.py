@@ -8,13 +8,13 @@ class Camera(models.Model):
     title = models.CharField(max_length=80)
     created_date = models.DateTimeField("Init Date")
     current_date = models.DateTimeField("Last Modified Date")
-    photo = models.FileField()
+    photo = models.ImageField(upload_to='snapshot', blank=True)
 
 
 class Notification(models.Model):
     title = models.CharField(max_length=80)
     current_date = models.DateTimeField("Init Date")
-    photo = models.FileField()
+    photo = models.ImageField()
     num_person = models.IntegerField(default=0)
 
 

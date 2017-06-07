@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .camera import VideoCamera
+from .camera import VideoCamera, SnapShot
 from django.http import StreamingHttpResponse
 
 # Create your views here.
@@ -12,6 +12,7 @@ def index(request):
 def main(request):
     return render(request, 'PoolCamAI/main.html')
 
+
 def gen(camera):
     """Video streaming generator function."""
     while True:
@@ -19,8 +20,13 @@ def gen(camera):
         yield b'--frame\r\nContent-Type: image/jpeg\r\nContent-Length: ' + \
               str(len(frame)).encode() + b'\r\n\r\n' + frame + b'\r\n'
 
-def video_feed(request):
+
+def video_feed(resquest):
     """Video streaming route. Put this in the src attribute of an img tag."""
     return StreamingHttpResponse(gen(VideoCamera()), content_type='multipart/x-mixed-replace; boundary=frame')
 
 
+def snap(request):
+    cam = SnapShot()
+    cam.get_shot()
+    return render(request, 'PoolCamAI/modalsnapnotify.html')
