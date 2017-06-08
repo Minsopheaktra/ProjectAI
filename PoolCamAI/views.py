@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .camera import VideoCamera, SnapShot
+from .camera import VideoCamera
 from django.http import StreamingHttpResponse
 
 # Create your views here.
@@ -27,6 +27,6 @@ def video_feed(resquest):
 
 
 def snap(request):
-    cam = SnapShot()
+    cam = VideoCamera()
     cam.get_shot()
     return render(request, 'PoolCamAI/modalsnapnotify.html')
