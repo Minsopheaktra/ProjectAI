@@ -25,12 +25,12 @@ def detection(image=None):
 
         # draw the final bounding boxes
         for (xA, yA, xB, yB) in pick:
-            cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
+            cv2.rectangle(frame, (xA, yA), (xB, yB), (0, 255, 0), 2)
 
         if len(pick)>0:
             print("[INFO]: {} after suppression".format(len(pick)))
         # We are using Motion JPEG, but OpenCV defaults to capture raw images,
         # so we must encode it into JPEG in order to correctly display the
         # video stream.
-        ret, jpeg = cv2.imencode('.jpg', image)
+        ret, jpeg = cv2.imencode('.jpg', frame)
         return jpeg

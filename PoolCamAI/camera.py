@@ -40,7 +40,8 @@ class VideoCamera(object):
 
         # faceCascade = cv2.CascadeClassifier('D:\AI\ProjectAI\media\haarcascade_fullbody.xml')
         success, image = self.video.read()
-        jpeg = detection(image)
+        if success:
+            jpeg = detection(image)
         if not jpeg is None:
             return jpeg.tobytes()
 
