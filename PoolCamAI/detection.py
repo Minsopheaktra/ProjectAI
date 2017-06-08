@@ -11,10 +11,10 @@ def detection(image=None):
     hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 
     # resize image to (1) reduce detection time (2) improve detection accuracy
-    image = imutils.resize(image, width=min(400, image.shape[1]))
+    frame = imutils.resize(image, width=min(400, image.shape[1]))
 
     # detect people in the image
-    (rects, weights) = hog.detectMultiScale(image, winStride=(4, 4),
+    (rects, weights) = hog.detectMultiScale(frame, winStride=(4, 4),
                                             padding=(8, 8), scale=1.05)
 
     # apply non-maxima suppression to the bounding boxes using a
