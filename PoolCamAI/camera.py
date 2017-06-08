@@ -2,7 +2,6 @@
 
 import cv2
 from time import strftime, gmtime
-
 import imutils
 import numpy as np
 from imutils.object_detection import non_max_suppression
@@ -42,7 +41,8 @@ class VideoCamera(object):
         # faceCascade = cv2.CascadeClassifier('D:\AI\ProjectAI\media\haarcascade_fullbody.xml')
         success, image = self.video.read()
         jpeg = detection(image)
-        return jpeg.tobytes()
+        if not jpeg is None:
+            return jpeg.tobytes()
 
     def get_shot(self):
         file = "snap_{0}.jpg".format(strftime("%b_%d_%Y_%H_%M", gmtime()))
