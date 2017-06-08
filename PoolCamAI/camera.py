@@ -2,7 +2,6 @@
 
 import cv2
 from time import strftime, gmtime
-
 import imutils
 import numpy as np
 from imutils.object_detection import non_max_suppression
