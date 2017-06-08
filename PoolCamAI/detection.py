@@ -5,9 +5,12 @@ from imutils.object_detection import non_max_suppression
 
 
 def detection(image=None):
+
+    # initialize the HOG descriptor/person detector
     hog = cv2.HOGDescriptor()
     hog.setSVMDetector(cv2.HOGDescriptor_getDefaultPeopleDetector())
 
+    # resize image to (1) reduce detection time (2) improve detection accuracy
     image = imutils.resize(image, width=min(400, image.shape[1]))
 
     # detect people in the image
