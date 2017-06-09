@@ -9,7 +9,6 @@ from imutils.object_detection import non_max_suppression
 from PoolCamAI.detection import detection
 
 
-
 class VideoCamera(object):
     def __init__(self):
         camera = 'rtsp://admin:admin@10.0.17.13:80'
@@ -26,7 +25,7 @@ class VideoCamera(object):
         # from a webcam, comment the line below out and use a video file
         # instead.
 
-        self.video = cv2.VideoCapture(camera)
+        self.video = cv2.VideoCapture(0)
 
         # If you decide to use video.mp4, you must have this file in the folder
         # as the main.py.
@@ -40,10 +39,18 @@ class VideoCamera(object):
 
         # faceCascade = cv2.CascadeClassifier('D:\AI\ProjectAI\media\haarcascade_fullbody.xml')
         success, image = self.video.read()
+
         if success:
-            jpeg = detection(image)
-        if not jpeg is None:
-            return jpeg.tobytes()
+            data = detection(image)
+            # print(data)
+            # print("The value of num{0}".format(data['num']))
+        else:
+            print("Failed to retrieved image.")
+
+        if not data['jpeg'] is None:
+            return data['jpeg'].tobytes(), data['num'], data['personflag']
+        else:
+            return image.tobytes()
 
     def get_shot(self):
         file = "snap_{0}.jpg".format(strftime("%b_%d_%Y_%H_%M", gmtime()))

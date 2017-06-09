@@ -27,10 +27,21 @@ def detection(image=None):
         for (xA, yA, xB, yB) in pick:
             cv2.rectangle(frame, (xA, yA), (xB, yB), (0, 255, 0), 2)
 
-        if len(pick)>0:
-            print("[INFO]: {} after suppression".format(len(pick)))
+        num = len(pick)
+        personflag = 0
+        if num > 0:
+            print("[INFO]: {} people".format(num))
+            personflag = 1
         # We are using Motion JPEG, but OpenCV defaults to capture raw images,
         # so we must encode it into JPEG in order to correctly display the
         # video stream.
-        ret, jpeg = cv2.imencode('.jpg', frame)
-        return jpeg
+        ret, jpeg = cv2.imencode('.jpg', image)
+        return {'jpeg': jpeg, 'num': num, 'personflag': personflag}
+        #
+        # def getnum():
+        #     print("Get num{0}".format(num))
+        #     return num
+        #
+        # def setnum(n):
+        #     print("Set num{0}".format(n))
+        #     num = n

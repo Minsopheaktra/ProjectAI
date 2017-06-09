@@ -55,9 +55,9 @@
             <ul class="right hide-on-med-and-down" id="ulright">
                 <li><a href="http://www.vkirirom.com/en/contact.php">Contact</a></li>
                 <li><a href="http://www.vkirirom.com/en/detailsCompany.php">About</a></li>
-
+                {% for result in results %}
                 <li><a class="dropdown-button btn white black-text" data-activates="dropdown1" href="#">Notification
-                    <span class="new badge blue">1</span></a></li>
+                    <span class="new badge blue">{{result|length}}</span></a></li>
                 <ul id='dropdown1' class='dropdown-content fixstyle'>
                     <ul class="collection">
                         <li class="collection-item dismissable">
@@ -65,13 +65,14 @@
                                 <img src="{% static 'PoolCamAI/assets/image/jeff.jpg' %}" alt="">
                             </div>
                             <div>
-                                <span class="title">There's number of people.</span>
-                                <p style="line-height: 0;"><span class="badge">June 1, 2017 13:53</span></p>
+                                <span class="title">{{result.title}}.There are {{result.num}} people</span>
+                                <p style="line-height: 0;"><span class="badge">{{result.times}}</span></p>
                             </div>
                         </li>
                     </ul>
                 </ul>
             </ul>
+                {% endfor %}
 
             <ul id="nav-mobile" class="side-nav">
 
