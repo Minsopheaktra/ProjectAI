@@ -41,6 +41,7 @@ def gen(camera):
         if num > 0 and person < 2:
             notification(num)
             person += 1
+            camera.get_shot()
 
         # print("Num of notification {0}".format(num))
         yield b'--frame\r\nContent-Type: image/jpeg\r\nContent-Length: ' + \
@@ -60,7 +61,7 @@ def snap(request):
 
 def notification(num):
     # title = "have people"
-    times = time.time()
+    times = time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime())
 
     # data to save
     data = {
