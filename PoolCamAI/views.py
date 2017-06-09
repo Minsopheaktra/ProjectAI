@@ -3,6 +3,8 @@ from .camera import VideoCamera
 from django.http import StreamingHttpResponse
 import time
 import pyrebase
+from .linemessage import send2line
+
 config = {
     "apiKey": "AIzaSyCm-_F1g8s527boL5zLma5sXuxI2XgT2As",
     "authDomain": "poolcam-62dfb.firebaseapp.com",
@@ -21,7 +23,7 @@ user = auth.sign_in_with_email_and_password(email, password)
 
 
 db = firebase.database()
-
+to = 'Uff558f7354df1711368b767a1f588b75'
 
 
 def index(request):
@@ -46,6 +48,7 @@ def gen(camera):
         # print("Num of notification {0}".format(num))
         yield b'--frame\r\nContent-Type: image/jpeg\r\nContent-Length: ' + \
               str(len(frame)).encode() + b'\r\n\r\n' + frame + b'\r\n'
+        # yield b'--frame\r\nContent-Type: image/jpeg' + b'\r\n\r\n' + frame + b'\r\n'
 
 
 def video_feed(resquest):
@@ -62,7 +65,8 @@ def snap(request):
 def notification(num):
     # title = "have people"
     times = time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime())
-
+    message = 'Detected {0} person at {1}'.format(num,times)
+    send2line(to, message)
     # data to save
     data = {
         # "title": title,
