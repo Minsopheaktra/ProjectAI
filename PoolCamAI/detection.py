@@ -21,7 +21,7 @@ def detection(image=None):
         # fairly large overlap threshold to try to maintain overlapping
         # boxes that are still people
         rects = np.array([[x, y, x + w, y + h] for (x, y, w, h) in rects])
-        pick = non_max_suppression(rects, probs=None, overlapThresh=0.65)
+        pick = non_max_suppression(rects, probs=None, overlapThresh=0.90)
 
         # draw the final bounding boxes
         for (xA, yA, xB, yB) in pick:
@@ -35,7 +35,7 @@ def detection(image=None):
         # We are using Motion JPEG, but OpenCV defaults to capture raw images,
         # so we must encode it into JPEG in order to correctly display the
         # video stream.
-        ret, jpeg = cv2.imencode('.jpg', image)
+        ret, jpeg = cv2.imencode('.jpg', frame)
         return {'jpeg': jpeg, 'num': num, 'personflag': personflag}
         #
         # def getnum():

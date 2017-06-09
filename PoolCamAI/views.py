@@ -9,7 +9,7 @@ config = {
     "databaseURL": "https://poolcam-62dfb.firebaseio.com",
     "projectId": "poolcam-62dfb",
     "storageBucket": "poolcam-62dfb.appspot.com",
-   "messagingSenderId": "924526053124"
+    "messagingSenderId": "924526053124"
 }
 
 firebase = pyrebase.initialize_app(config)
@@ -21,9 +21,6 @@ user = auth.sign_in_with_email_and_password(email, password)
 
 
 db = firebase.database()
-
-
-
 
 
 
@@ -45,7 +42,7 @@ def gen(camera):
             notification(num)
             person += 1
 
-        print("Num of notification {0}".format(num))
+        # print("Num of notification {0}".format(num))
         yield b'--frame\r\nContent-Type: image/jpeg\r\nContent-Length: ' + \
               str(len(frame)).encode() + b'\r\n\r\n' + frame + b'\r\n'
 
@@ -61,7 +58,6 @@ def snap(request):
     return render(request, 'PoolCamAI/modalsnapnotify.html')
 
 
-
 def notification(num):
     # title = "have people"
     times = time.time()
@@ -75,12 +71,18 @@ def notification(num):
 
     #Pass the user's idToken to the push method
     results = db.child("users").child("Notification").push(data, user['idToken'])
+    # print(results)
 
 
 def notification_view(request):
-    results = db.child("users").child("Notification").get(user['idToken'])
-
-    return render(request, 'PoolCamAI/main.html',results)
+    # print('Hi')
+    results = db.child("users").child("Notification").get(user['idToken']).val()
+    datas = []
+    for i, (key, value) in enumerate(results.items()):
+        datas.append(value)
+        # print(value)
+    # print(datas)
+    return render(request, 'PoolCamAI/main.html', {'results': datas})
 
 
 

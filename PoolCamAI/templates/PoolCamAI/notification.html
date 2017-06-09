@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
-  <title>Swimming Pool Surveilliance</title>
 
-  <!-- CSS  -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="../css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-</head>
-<body>
-  <header class="main">
-
-  </header>
-
-<main class="main">
-
-</main>
-
-
-
-
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="../js/materialize.js"></script>
-  <script src="../js/init.js"></script>
-
-  </body>
-</html>
+<li><a class="dropdown-button btn white black-text" data-activates="dropdown1" href="{% url 'notify' %}">Notification
+    <span class="new badge blue">{{results|length}}</span></a></li>
+<ul id='dropdown1' class='dropdown-content fixstyle'>
+    <ul class="collection">
+        {% for result in results %}
+        <li class="collection-item dismissable">
+            <div>
+                <span class="title">Detected {{result.num}} people</span>
+                <p style="line-height: 0;"><span class="badge">{{result.times}}</span></p>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</ul>
