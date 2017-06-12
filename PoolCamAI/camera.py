@@ -53,6 +53,7 @@ class VideoCamera(object):
         file = "snap_{0}.jpg".format(strftime("%b_%d_%Y_%H_%M", gmtime()))
         # ret, image = self.video.read()
         image = self.vs.read()
+        
         flag = cv2.imwrite(file, image)
         if flag:
             print('snap saved')
