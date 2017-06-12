@@ -12,7 +12,7 @@ from PoolCamAI.detection import detection
 
 class VideoCamera(object):
     def __init__(self):
-        camera = 'rtsp://admin:admin@10.0.17.13:80'
+        camera = 'rtsp://admin:admin@10.0.17.13:80/'
 
         #######################################################################
         # Camera Options                                                      #
@@ -27,14 +27,14 @@ class VideoCamera(object):
         # instead.
 
         # self.video = cv2.VideoCapture('http://192.168.1.106:8080/video')
-        self.vs = WebcamVideoStream(src='http://192.168.1.106:8080/video').start()
+        self.vs = WebcamVideoStream(src=camera).start()
         # If you decide to use video.mp4, you must have this file in the folder
         # as the main.py.
         # self.video = cv2.VideoCapture('video.mp4')
         # initialize the HOG descriptor/person detector
 
     def __del__(self):
-        self.video.release()
+        # self.video.release()
         self.vs.stop()
 
     def get_frame(self):

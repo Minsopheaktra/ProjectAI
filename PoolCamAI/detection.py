@@ -15,7 +15,7 @@ def detection(image=None):
         frame = imutils.resize(image, width=400)
         # detect people in the image
         (rects, weights) = hog.detectMultiScale(frame, winStride=(8, 8),
-                                                padding=(8, 8), scale=1.1)
+                                                padding=(4, 4), scale=1.1)
         #
         # # apply non-maxima suppression to the bounding boxes using a
         # # fairly large overlap threshold to try to maintain overlapping
