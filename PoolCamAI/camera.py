@@ -12,7 +12,7 @@ from PoolCamAI.detection import detection
 
 class VideoCamera(object):
 	def __init__(self):
-		camera = 'rtsp://admin:admin@10.0.17.13:80/live'
+		camera = 'rtsp://admin:admin@10.0.17.3:80/live'
 
 		#######################################################################
 		# Camera Options                                                      #
@@ -27,7 +27,7 @@ class VideoCamera(object):
 		# instead.
 
 		# self.video = cv2.VideoCapture('http://192.168.1.106:8080/video')
-		self.vs = WebcamVideoStream(src=0).start()
+		self.vs = WebcamVideoStream(src=camera).start()
 		# If you decide to use video.mp4, you must have this file in the folder
 		# as the main.py.
 		# self.video = cv2.VideoCapture('video.mp4')
@@ -58,7 +58,7 @@ class VideoCamera(object):
 			print('snap saved')
 
 	def get_shotauto(self, image):
-			file = "snap_{0}.jpg".format(strftime("%b_%d_%Y_%H_%M", gmtime()))
+			file = "snap_{0}.jpg".format(strftime("%b_%d_%Y_%H_%M_%S", gmtime()))
 			image = np.asarray(bytearray(image), dtype=np.uint8)
 			image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 			print(image)

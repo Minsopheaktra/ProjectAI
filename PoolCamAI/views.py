@@ -40,10 +40,11 @@ def gen(camera):
         frame, num, person = camera.get_frame()
         # print("Num of notification {0}".format(num))
 
-        if num > 0 and person < 2:
-            # notification(num)
-            person += 1
+        if num > 0:
             camera.get_shotauto(frame)
+            if person < 2:
+                # notification(num)
+                person += 1
 
         # print("Num of notification {0}".format(num))
         yield b'--frame\r\nContent-Type: image/jpeg\r\nContent-Length: ' + \
