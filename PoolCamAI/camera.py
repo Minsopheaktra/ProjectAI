@@ -7,12 +7,13 @@ import numpy as np
 from imutils.object_detection import non_max_suppression
 from imutils.video import WebcamVideoStream
 
+from PoolCamAI.condetect import ConDetect
 from PoolCamAI.detection import detection
 
 
 class VideoCamera(object):
 	def __init__(self):
-		camera = 'rtsp://admin:admin@10.0.17.3:80/live'
+		camera = 'rtsp://admin:admin@10.0.17.8:80/live'
 
 		#######################################################################
 		# Camera Options                                                      #
@@ -32,6 +33,10 @@ class VideoCamera(object):
 		# as the main.py.
 		# self.video = cv2.VideoCapture('video.mp4')
 		# initialize the HOG descriptor/person detector
+		self.W = self.vs.getW()
+		self.H = self.vs.getH()
+		self.detect = ConDetect(self.H, self.W)
+		# print('Hi')
 
 	def __del__(self):
 		# self.video.release()
@@ -42,8 +47,8 @@ class VideoCamera(object):
 		# faceCascade = cv2.CascadeClassifier('D:\AI\ProjectAI\media\haarcascade_fullbody.xml')
 		# success, image = self.video.read()
 		image = self.vs.read()
-		data = detection(image)
-
+		# data = detection(image)
+		data = self.detect.detect(image)
 		if not data['jpeg'] is None:
 			return data['jpeg'].tobytes(), data['num'], data['personflag']
 		else:

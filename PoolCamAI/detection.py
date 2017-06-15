@@ -12,7 +12,7 @@ def detection(image=None):
     if not image is None:
         # resize image to (1) reduce detection time (2) improve detection accuracy
         # frame = imutils.resize(image, width=min(400, image.shape[1]))
-        frame = imutils.resize(image, width=450)
+        frame = imutils.resize(image, width=1280)
         # detect people in the image
         (rects, weights) = hog.detectMultiScale(frame, winStride=(8, 8),
                                                 padding=(8, 8), scale=1.1)
