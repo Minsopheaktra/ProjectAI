@@ -13,7 +13,7 @@ from PoolCamAI.detection import detection
 
 class VideoCamera(object):
 	def __init__(self):
-		camera = 'rtsp://admin:admin@10.0.17.8:80/live'
+		camera = 'rtsp://admin:admin@10.0.17.3:80/live'
 
 		#######################################################################
 		# Camera Options                                                      #
@@ -60,13 +60,13 @@ class VideoCamera(object):
 		image = self.vs.read()
 		flag = cv2.imwrite(file, image)
 		if flag:
-			print('snap saved')
+			print('snap saved', strftime("%c"))
 
 	def get_shotauto(self, image):
 			file = "snap_{0}.jpg".format(strftime("%b_%d_%Y_%H_%M_%S", gmtime()))
 			image = np.asarray(bytearray(image), dtype=np.uint8)
 			image = cv2.imdecode(image, cv2.IMREAD_COLOR)
-			print(image)
+			# print(image)
 			flag = cv2.imwrite(file, image)
 			if flag:
-				print('snap auto saved')
+				print('snap auto saved', strftime("%c"))

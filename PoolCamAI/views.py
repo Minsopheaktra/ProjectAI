@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render
 
 from PoolCamAI.dashboard import DashCamera
@@ -41,12 +42,16 @@ def gen(camera):
 	while True:
 		frame, num, person = camera.get_frame()
 		# print("Num of notification {0}".format(num))
-
-		if num > 0:
-			camera.get_shotauto(frame)
-			if person < 2:
-				notification(num)
-				person += 1
+		now = datetime.now().time()
+		endstart = now.replace(hour=6, minute=0, second=0, microsecond=0)
+		startend = now.replace(hour=22, minute=0, second=0, microsecond=0)
+		if not now > endstart and time < startend:
+			if person or num > 3:
+				camera.get_shotauto(frame)
+				if person:
+					notification(num)
+					print('Detected')
+					# person += 1
 
 		# print("Num of notification {0}".format(num))
 		yield b'--frame\r\nContent-Type: image/jpeg\r\nContent-Length: ' + \
