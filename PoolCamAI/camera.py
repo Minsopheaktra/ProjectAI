@@ -13,7 +13,7 @@ from PoolCamAI.detection import detection
 
 class VideoCamera(object):
 	def __init__(self):
-		camera = 'rtsp://admin:admin@10.0.17.3:80/live'
+		camera = 'rtsp://admin:admin@10.0.17.15:80/live'
 
 		#######################################################################
 		# Camera Options                                                      #

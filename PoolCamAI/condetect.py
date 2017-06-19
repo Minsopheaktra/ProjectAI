@@ -19,7 +19,8 @@ class ConDetect:
 		self.iw = w
 		print("{0}, {1}\n".format(self.iw, self.ih))
 		self.frameArea = self.ih * self.iw
-		self.areaTH = self.frameArea / 250
+		# self.areaTH = self.frameArea / 250
+		self.areaTH = 500
 		self.left = int(2 * (self.iw / 10))
 		self.right = int(8 * (self.iw / 10))
 		self.top = int(2 * (self.iw / 10))
@@ -120,7 +121,7 @@ class ConDetect:
 
 				cv2.circle(frame, (self.cx, self.cy), 5, (0, 0, 255), -1)
 				cv2.rectangle(frame, (self.x, self.y), (self.x + self.w, self.y + self.h), (0, 255, 0), 2)
-				cv2.drawContours(frame, cnt, -1, (0, 255, 0), 3)
+				# cv2.drawContours(frame, cnt, -1, (0, 255, 0), 3)
 
 		for i in self.persons:
 			cv2.putText(frame, str(i.getId()), (i.getX(), i.getY()), self.font, 0.3, i.getRGB(), 1, cv2.LINE_AA)

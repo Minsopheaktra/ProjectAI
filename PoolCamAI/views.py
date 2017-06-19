@@ -2,6 +2,7 @@ from datetime import datetime
 from django.shortcuts import render
 
 from PoolCamAI.dashboard import DashCamera
+from PoolCamAI.mailmessage import mail
 from .camera import VideoCamera
 from django.http import StreamingHttpResponse
 import time
@@ -75,6 +76,7 @@ def notification(num):
 	times = time.strftime("%a, %d %b %Y %H:%M:%S", time.gmtime())
 	message = 'Detected {0} person at {1}'.format(num,times)
 	send2line(to, message)
+	mail()
 	# data to save
 	data = {
 		# "title": title,
